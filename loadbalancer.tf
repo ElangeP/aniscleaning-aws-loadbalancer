@@ -18,7 +18,7 @@ resource "aws_lb" "nginx" {
   enable_deletion_protection = false
 
   access_logs {
-    bucket  = aws_s3_bucket.web_bucket.bucket
+    bucket  = aws_s3_bucket.aniscleaning-web_bucket.bucket
     prefix  = "alb-logs"
     enabled = true
   }
