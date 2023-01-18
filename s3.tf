@@ -52,7 +52,7 @@ EOF
 
 }
 
-resource "aws_s3_bucket" "aniscleaning-web_bucket" {
+resource "aws_s3_bucket" "web_bucket" {
   bucket        = local.s3_bucket_name
   acl           = "private"
   force_destroy = true
