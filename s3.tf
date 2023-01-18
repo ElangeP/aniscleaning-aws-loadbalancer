@@ -52,9 +52,10 @@ EOF
 
 }
 
-resource "aws_s3_bucket" "web_bucket" {
+resource "aws_s3_bucket" "aniscleaning-web_bucket" {
   bucket        = local.s3_bucket_name
-  acl           = "private"
+  #acl           = "private"
+  aws_s3_bucket_acl ="private"
   force_destroy = true
 
   policy = <<POLICY
@@ -99,7 +100,7 @@ resource "aws_s3_bucket" "web_bucket" {
 }
 
 resource "aws_s3_bucket_object" "website" {
-  bucket = aws_s3_bucket.web_bucket.bucket
+  bucket = aws_s3_bucket.aniscleaning-web_bucket.bucket
   key    = "/website/index.html"
   source = "./website/index.html"
 
@@ -108,7 +109,7 @@ resource "aws_s3_bucket_object" "website" {
 }
 
 resource "aws_s3_bucket_object" "graphic" {
-  bucket = aws_s3_bucket.web_bucket.bucket
+  bucket = aws_s3_bucket.aniscleaning-web_bucket.bucket
   key    = "/website/Globo_logo_Vert.png"
   source = "./website/Globo_logo_Vert.png"
 
